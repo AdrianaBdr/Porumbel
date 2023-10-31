@@ -1,0 +1,60 @@
+<style>
+    .absolute
+    {
+        position:absolute;
+    }   
+
+</style>
+
+<img src="images/porumbel1.png" class="absolute" id="porumbel">
+
+<script>
+
+    var porumbelImg = document.getElementById('porumbel');
+    
+    var porumbelNo = 1;
+    function porumbelAnimatie()
+    {
+        porumbelNo = porumbelNo + 1;
+        if(porumbelNo == 10)
+        {
+            porumbelNo = 1;
+        }
+    
+        porumbelImg.src = 'images/porumbel'+porumbelNo+'.png';
+    }
+
+    var porumbelAnimatieAripiInterval = setInterval(porumbelAnimatie, 150);
+
+
+    var stare = 0;
+
+    var porumbelPozX = 0;
+    function miscareaPeOrizontalaAPorumbel()
+    {
+        if(stare == 0)
+        {
+            porumbelPozX = porumbelPozX + 5;
+            if(porumbelPozX > 1000)
+            {
+                stare = 1;
+            }
+        }
+        if(stare == 1)
+        {
+            porumbelPozX = porumbelPozX - 5;
+            if(porumbelPozX < 0)
+            {
+                stare = 0;
+            }
+        }
+
+
+
+        porumbelImg.style.left = porumbelPozX + 'px';
+    }
+
+    var porumbelMiscareOrizontalaInterval = setInterval(miscareaPeOrizontalaAPorumbel, 50);
+
+
+</script>
